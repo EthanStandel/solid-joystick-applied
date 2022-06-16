@@ -28,7 +28,10 @@ export const App: Component = () => {
           ]}
           onMove={setLeftJoystickState}
           baseProps={{ style: styles.joystickBase }}
-          handleProps={{ style: styles.joystickHandle }}
+          handleProps={{
+            children: <div style={styles.joystickHandleChild} />,
+            style: styles.joystickHandle
+          }}
         />
         <Joystick
           plugins={[
@@ -39,7 +42,10 @@ export const App: Component = () => {
           ]}
           onMove={setRightJoystickState}
           baseProps={{ style: styles.joystickBase }}
-          handleProps={{ style: styles.joystickHandle }}
+          handleProps={{
+            children: <div style={styles.joystickHandleChild} />,
+            style: styles.joystickHandle
+          }}
         />
       </div>
     </>
@@ -63,10 +69,20 @@ const styles: Record<string, JSX.CSSProperties> = {
     width: "min(35vh, 35vw)",
     background: "rgba(255, 255, 255, .1)"
   },
-  joystickHandle: {
+  joystickHandleChild: {
     width: "50%",
     height: "50%",
     background: "rgba(255, 0, 0, .1)",
     "border-radius": "50%"
+  },
+  joystickHandle: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    "justify-content": "center",
+    "align-items": "center",
+    background: "transparent",
+    "border-radius": "50%",
+    border: "none"
   }
 }
