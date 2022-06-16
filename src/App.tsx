@@ -1,4 +1,13 @@
-import { Joystick, JoystickMoveEvent, initialStates, PointerPlugin, GamepadPlugin } from "solid-joystick";
+import { 
+  Joystick,
+  JoystickMoveEvent,
+  initialStates,
+  MousePlugin,
+  MultiTouchPlugin,
+  GamepadPlugin,
+  KeyboardPlugin,
+  initialKeyboardPluginOptions
+} from "solid-joystick";
 import { Component, createSignal, JSX } from "solid-js";
 import { Canvas } from "./components/Canvas";
 
@@ -11,13 +20,23 @@ export const App: Component = () => {
       <Canvas leftJoystickState={leftJoystickState} rightJoystickState={rightJoystickState} />
       <div style={styles.joystickContainer}>
         <Joystick
-          plugins={[PointerPlugin(), GamepadPlugin()]}
+          plugins={[
+            MultiTouchPlugin(),
+            MousePlugin(),
+            GamepadPlugin(),
+            KeyboardPlugin()
+          ]}
           onMove={setLeftJoystickState}
           baseProps={{ style: styles.joystickBase }}
           handleProps={{ style: styles.joystickHandle }}
         />
         <Joystick
-          plugins={[PointerPlugin(), GamepadPlugin({ xIndex: 2, yIndex: 3 })]}
+          plugins={[
+            MultiTouchPlugin(),
+            MousePlugin(),
+            GamepadPlugin({ xIndex: 2, yIndex: 3 }),
+            KeyboardPlugin(initialKeyboardPluginOptions("arrows"))
+          ]}
           onMove={setRightJoystickState}
           baseProps={{ style: styles.joystickBase }}
           handleProps={{ style: styles.joystickHandle }}
