@@ -6,7 +6,8 @@ import {
   MultiTouchPlugin,
   GamepadPlugin,
   KeyboardPlugin,
-  initialKeyboardPluginOptions
+  initialKeyboardPluginOptions,
+  PointerLockPlugin
 } from "solid-joystick";
 import { Component, createSignal, JSX } from "solid-js";
 import { Canvas } from "./components/Canvas";
@@ -24,7 +25,7 @@ export const App: Component = () => {
             MultiTouchPlugin(),
             MousePlugin(),
             GamepadPlugin(),
-            KeyboardPlugin()
+            KeyboardPlugin(),
           ]}
           onMove={setLeftJoystickState}
           baseProps={{ style: styles.joystickBase }}
@@ -38,7 +39,8 @@ export const App: Component = () => {
             MultiTouchPlugin(),
             MousePlugin(),
             GamepadPlugin({ xIndex: 2, yIndex: 3 }),
-            KeyboardPlugin(initialKeyboardPluginOptions("arrows"))
+            KeyboardPlugin(initialKeyboardPluginOptions("arrows")),
+            PointerLockPlugin({ hideOnLock: true })
           ]}
           onMove={setRightJoystickState}
           baseProps={{ style: styles.joystickBase }}
@@ -76,6 +78,7 @@ const styles: Record<string, JSX.CSSProperties> = {
     "border-radius": "50%"
   },
   joystickHandle: {
+    outline: "none",
     padding: "0",
     width: "100%",
     height: "100%",
