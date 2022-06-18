@@ -21,5 +21,5 @@ writeFileSync("./index.html",
 `);
 
 execSync("git commit -am \"deploy: github pages\"");
-execSync("git push --force");
+execSync("git push --force --set-upstream origin gh-pages");
 execSync("git checkout main");
