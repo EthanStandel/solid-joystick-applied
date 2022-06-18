@@ -2,4 +2,4 @@
 
 An example of how the solid-joystick package can be used to navigate 3D space.
 
-## [Demo](https://ethanstandel.github.io/solid-joystick-applied/)
+## [Demo](https://ethanstandel.github.io/dist/solid-joystick-applied/)

@@ -7,5 +7,5 @@ export default defineConfig({
     target: "esnext",
     polyfillDynamicImport: false,
   },
-  base: "/solid-joystick-applied"
+  base: "/dist/solid-joystick-applied"
 });
