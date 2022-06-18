@@ -8,6 +8,8 @@ try {
 execSync("git checkout -b gh-pages");
 execSync("npm run build");
 
+unlinkSync("./.gitignore");
+writeFileSync("./.gitignore", "node_modules");
 unlinkSync("./index.html");
 writeFileSync("./index.html", 
 `<!DOCTYPE html>
